@@ -43,6 +43,17 @@ Table OF Contents
 
 
 /* -- typography -- */
+::placeholder {
+    color:   #3c68c0;
+    font-size: 150%;
+}
+
+
+.form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+    direction: rtl;
+}
 
 body {
     font-family: 'Varela Round', sans-serif;
@@ -1432,6 +1443,7 @@ header {
 .contact-form {
     text-align: center;
     margin-top: 40px;
+    direction: rtl;
 }
 
 .contact-form .input {
