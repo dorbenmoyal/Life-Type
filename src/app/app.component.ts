@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import * as $ from 'jquery';
+import {Form} from './Form';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,9 +11,15 @@ export class AppComponent {
   title = 'Life-Type';
   hash  : string ;
 
+	form : any;
+
+	constructor() {
+		this.form = new Form("","","","");
+
+	}
 
 
-  ngOnInit(){
+  ngOnInit(){  
 
     
 ///////////////////////////
@@ -49,7 +57,11 @@ export class AppComponent {
   
 
   
-  }
+	}
+	
+	submitTriggerd (){
+		console.log(this.form);
+	}
 
   
   

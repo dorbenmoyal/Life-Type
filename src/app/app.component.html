@@ -194,13 +194,13 @@
 	
 					<!-- contact form -->
 					<div class="col-md-8 col-md-offset-2">
-						<form class="contact-form">
-							<input type="text" class="input" placeholder="שם">
+						<form class="contact-form" onsubmit="return false">
+							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.name" name="firstName" type="text" class="input" placeholder="שם">
 							
-							<input type="email" class="input" placeholder="אימייל">
-							<input type="text" class="input" placeholder="נושא">
-							<textarea class="input" placeholder="הערות"></textarea>
-							<button class="main-btn">שלח הודעה</button>
+							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.Email" name="Email" type="email" class="input" placeholder="אימייל">
+							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.subject" name="FreeText" type="text" class="input" placeholder="נושא">
+							<textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="form.freeText"class="input" placeholder="הערות"></textarea>
+							<button class="main-btn" (click) = "submitTriggerd()">שלח הודעה</button>
 						</form>
 					</div>
 					<!-- /contact form -->
