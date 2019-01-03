@@ -1,7 +1,13 @@
-var express = require("express");
+let express = require('express'),
+    path = require('path');
 var app = express();
+let server = require('http').Server(app);
+var port = process.env.PORT || 8000;
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
+app.use(express.static(path.join(__dirname)));
+
+
+
+server.listen(port, () => {
+    console.log("App is running on port " + port);
 });
