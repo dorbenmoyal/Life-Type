@@ -1766,3 +1766,10 @@ header {
             transform:scale(0);
   }
 }
+
+* {
+    box-sizing: border-box;
+  }
+  
+
+  

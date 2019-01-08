@@ -195,11 +195,16 @@
 					<!-- contact form -->
 					<div class="col-md-8 col-md-offset-2">
 						<form class="contact-form" onsubmit="return false">
-							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.name" name="firstName" type="text" class="input" placeholder="שם">
+							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.name" id="firstName" name="firstName" type="text" class="input" placeholder="שם" required (keyup)="nameCheck()">
 							
-							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.Email" name="Email" type="email" class="input" placeholder="אימייל">
-							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.subject" name="FreeText" type="text" class="input" placeholder="נושא">
-							<textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="form.freeText"class="input" placeholder="הערות"></textarea>
+							<input required [ngModelOptions]="{standalone: true}" [(ngModel)]="form.Email" id="Email" name="Email" type="email" class="input" placeholder="אימייל" required (keyup)="EmailCheck()">
+							
+							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.subject" id="FreeText" name="FreeText" type="text" class="input" placeholder="נושא" required>
+						
+							<textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="form.freeText"class="input"  id="Comments" placeholder="הערות" required></textarea>
+
+						
+						
 							<button class="main-btn" (click) = "submitTriggerd()">שלח הודעה</button>
 						</form>
 					</div>
@@ -213,6 +218,7 @@
 
 		</div>
 		<!-- /Container -->
+		<app-files-upload></app-files-upload>
 
 	</div>
 	<!-- /Service -->
