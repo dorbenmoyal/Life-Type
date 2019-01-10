@@ -3,3 +3,21 @@
 .rtl{
     direction: rtl;
 }
+.ltr{
+    direction: ltr;
+}
+
+.bg-grey{
+    background-color: #FAFAFA;
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
+}
+body{
+    background-color: #FAFAFA;
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
+}
+
+.well{
+   padding:  84px;
+}

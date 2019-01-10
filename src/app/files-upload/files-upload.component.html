@@ -6,34 +6,30 @@
   html, body { height: 100%; }
 </style>
 
-<div class="container">
+<div class="container bg-grey">
 
-  <div class="navbar navbar-default">
-      <div class="navbar-header">
-          <a class="navbar-brand" href>Angular2 File Upload</a>
-      </div>
-  </div>
+
 
   <div class="row rtl">
 
       <div class="col-md-3">
 
-          <h3>Select files</h3>
+          <h3>בחר קבצים</h3>
 
           <div ng2FileDrop
                [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
                (fileOver)="fileOverBase($event)"
                [uploader]="uploader"
                class="well my-drop-zone">
-              גרור קבצים לכאן
+              באפשרותך לגרור קבצים לכאן
           </div>
 
 
           בחר כמה קבצים
-          <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
+          <input type="file" [name]="photo" ng2FileSelect [uploader]="uploader" multiple  /><br/>
 
           בחר קובץ בודד
-          <input type="file" ng2FileSelect [uploader]="uploader" />
+          <input type="file" [name]="photo"  ng2FileSelect [uploader]="uploader" />
       </div>
 
       <div class="col-md-9" style="margin-bottom: 40px">
@@ -41,21 +37,21 @@
           <h3>העלאת קבצים</h3>
           <p>מס' קבצים: {{ uploader?.queue?.length }}</p>
 
-          <table class="table">
+          <table class="table ltr">
               <thead>
               <tr>
-                  <th width="50%">Name</th>
-                  <th>Size</th>
-                  <th>Progress</th>
-                  <th>Status</th>
-                  <th>Actions</th>
+                  <th width="50%">שם קובץ</th>
+                  <th>גודל קובץ</th>
+                  <th>התקדמות</th>
+                  <th>מצב</th>
+                  <th style="padding-left: 8%;">פעולות</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let item of uploader.queue">
                   <td><strong>{{ item?.file?.name }}</strong></td>
-                  <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
-                  <td *ngIf="uploader.isHTML5">
+                  <td *ngIf="isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                  <td *ngIf="isHTML5">
                       <div class="progress" style="margin-bottom: 0;">
                           <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
                       </div>
@@ -86,7 +82,7 @@
           <div>
               <div>
                   קבצים בעיבוד:
-                  <div class="progress" style="">
+                  <div class="progress">
                       <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                   </div>
               </div>
@@ -109,3 +105,4 @@
   </div>
 
 </div>
+

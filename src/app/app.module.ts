@@ -24,4 +24,6 @@ import { FilesUploadComponent } from './files-upload/files-upload.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
