@@ -27,8 +27,8 @@
 					<!-- /Collapse nav button -->
 				</div>
 
-				<!--  Main navigation  -->
-				<ul class="main-nav nav navbar-nav navbar-right">
+				 <!-- Main navigation  -->
+				<ul *ngIf="BigDeviceMediaScreen" class="main-nav nav navbar-nav navbar-right">
 					
 						<li class="has-dropdown"><a href="#blog">בלוג</a>
 							<ul class="dropdown">
@@ -42,6 +42,26 @@
 				
 				<li><a href="#home">בית</a></li>
 				</ul>
+
+				<ul *ngIf="!BigDeviceMediaScreen" class="main-nav nav navbar-nav navbar-right">
+					
+						<li><a href="#home">בית</a></li>
+
+						<li><a href="#about">עלינו</a></li>
+
+						<li><a href="#newcontact">צור קשר</a></li>
+						
+							<li><a href="#team">צוות</a></li>
+						
+							<li class="has-dropdown"><a href="#blog">בלוג</a>
+								<ul class="dropdown">
+										<li><a href="blog-single.html">בלוג פוסט</a></li>
+									</ul>
+							</li>
+				</ul>
+
+			
+		
 				<!-- /Main navigation -->
 
 			</div>
@@ -198,10 +218,14 @@
 							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.name" id="firstName" name="firstName" type="text" class="input" placeholder="שם" required (keyup)="nameCheck()">
 							
 							<input required [ngModelOptions]="{standalone: true}" [(ngModel)]="form.Email" id="Email" name="Email" type="email" class="input" placeholder="אימייל" required (keyup)="EmailCheck()">
+
+							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.phone" id="Phone" name="Phone" type="tel"  class="input" placeholder="נייד/טלפון" required  (keypress)="PhoneCheck($event)">
 							
-							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.subject" id="FreeText" name="FreeText" type="text" class="input" placeholder="נושא" required>
+							<input [ngModelOptions]="{standalone: true}" [(ngModel)]="form.subject" id="FreeText" name="FreeText" type="text" class="input" placeholder="נושא" required >
+
+
 						
-							<textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="form.freeText"class="input"  id="Comments" placeholder="הערות" required></textarea>
+							<textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="form.freeText"class="input"  id="Comments" placeholder="הערות" ></textarea>
 
 						
 						

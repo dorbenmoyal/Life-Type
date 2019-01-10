@@ -5,7 +5,8 @@ export class Form{
         public name: string,
         public Email: string,
         public freeText : string,
-        public subject : string
+        public subject : string,
+        public phone : string
     ){}
     
 

@@ -344,6 +344,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
         font-size: 14px;
         -webkit-transition: 0.2s color;
         transition: 0.2s color;
+        display: inline-block;
     }
     .main-nav>li>a {
         color: #10161A;
