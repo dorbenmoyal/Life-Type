@@ -13,10 +13,10 @@ export class MailServiceService {
 
   constructor(private http: HttpClient) { }
 
-  sendMail(form : Form){
-   this.http.post(this._sendMailUrl,JSON.stringify(form),
+  sendMail(form : Form) {
+  return  this.http.post(this._sendMailUrl,JSON.stringify(form),
    {headers:{'Content-Type': 
-    'application/json'}}).subscribe(res=> console.log(res));
+    'application/json'}});
   }
 
 }

@@ -86,7 +86,17 @@ export class AppComponent {
 	submitTriggerd() {
 
 
-		this.mailService.sendMail(this.form);
+		this.mailService.sendMail(this.form).subscribe(data => {
+			if (data) {
+				console.log("SuCCSES");
+			}
+			else {
+				console.log("FAIL");
+			}
+		}
+		);
+
+	
 		if (this.form.name == "") {
 			alert("Name must be filled out");
 			document.getElementById("firstName").style.borderColor = "red";
