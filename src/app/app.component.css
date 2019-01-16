@@ -1771,6 +1771,116 @@ header {
 * {
     box-sizing: border-box;
   }
+
+  /* fontawesome */
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmYUtfBBc9.ttf) format('truetype');
+  }
+  body {
+    font-family: 'Roboto';
+  }
+  p {
+    font-weight: 200;
+  }
+  h1 {
+    text-align: center;
+    font-weight: 200;
+    color: #555;
+    text-transform: uppercase;
+  }
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    position: relative;
+  }
+  .alert {
+    display: none;
+    box-shadow: inset 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    max-height: 0px;
+  }
+  .alert.open {
+    max-height: auto;
+    display: block;
+    text-align: center;
+  }
+  .alert p {
+    padding: 0;
+  }
+  .alert span.close {
+    float: right;
+    font-size: 1.5em;
+    position: relative;
+    top: 0.12em;
+  }
+  .alert span.close:hover {
+    color: #2b8c46;
+  }
+  .alert span.icon {
+    margin-right: 0.5em;
+    font-size: 1.5em;
+    position: relative;
+    top: 0.12em;
+  }
+  .alert.success {
+    background: #53ca74;
+    color: #fff;
+    padding: 2em 0;
+  }
+  .alert.fail {
+    background:#f13153;
+    color: #fff;
+    padding: 2em 0;
+  }
+  .instruction {
+    width: 420px;
+    margin: 1em auto;
+    text-align: center;
+    color: #999;
+    line-height: 1.5em;
+  }
+  .instruction a.button {
+    display: block;
+    clear: both;
+    width: 65%;
+    padding: 1em;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 1em auto;
+    border-radius: 0.5em;
+  }
+  .instruction a.button:hover {
+    background: #eaeaea;
+    border: 1px solid #c4c4c4;
+  }
+  .instruction a.button:active {
+    background: #dddddd;
+  }
+  
   
 
   

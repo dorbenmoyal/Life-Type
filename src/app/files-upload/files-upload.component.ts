@@ -12,10 +12,12 @@ export class FilesUploadComponent implements OnInit {
 
   public uploader: FileUploader = new FileUploader({url: URL, itemAlias: 'photo'});
 
-  files  : any[] =[];
+  public files  : any[];
   isHTML5 = true;
   
-  constructor() { }
+  constructor() {
+    this.files = new Array();
+   }
 
   ngOnInit() {
    
@@ -23,11 +25,23 @@ export class FilesUploadComponent implements OnInit {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       
          console.log('ImageUpload:uploaded:', item, status, response);
-         this.files.push(item);
+          if(status == "200"){
+            console.log("GOT IT")
+          }
+          else{
+            var fileError = {status : "fail",fileName : item.fileName};
+            this.files.push(fileError);
+          }
+        // this.files.push(item);
      };
      this.uploader.onCompleteAll = function compleate(){
 
       console.log("compleated!!!@!#@#$%");
+      console.log(this.files);
+      this.files.forEach(element => {
+        
+        console.log(element);
+      });
 
      };
 

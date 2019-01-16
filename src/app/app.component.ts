@@ -14,6 +14,8 @@ export class AppComponent {
 	hash: string;
 	inputs = document.querySelectorAll('.file-input')
 
+	formMessage : string;
+
 	form: Form;
 
 	BigDeviceMediaScreen: boolean ;
@@ -48,6 +50,8 @@ export class AppComponent {
 		$(window).on('load', function () {
 			$("#preloader").delay(600).fadeOut();
 		});
+		
+		
 		///////////////////////////
 		// Btn nav collapse
 		$('#nav .nav-collapse').on('click', function () {
@@ -84,27 +88,82 @@ export class AppComponent {
 	}
 
 	submitTriggerd() {
-
-
-		this.mailService.sendMail(this.form).subscribe(data => {
-			if (data) {
-				console.log("SuCCSES");
-			}
-			else {
-				console.log("FAIL");
-			}
-		}
-		);
-
-	
+		
 		if (this.form.name == "") {
-			alert("Name must be filled out");
+			alert("שם מלא הוא שדה חובה");
 			document.getElementById("firstName").style.borderColor = "red";
+			return;
 		}
 		if (this.form.Email == "") {
 			alert("אימייל הוא שדה חובה");
 			document.getElementById("Email").style.borderColor = "red";
+			return;
 		}
+		if (this.form.phone == "") {
+			alert("נייד/טלפון הוא שדה חובה");
+			document.getElementById("Phone").style.borderColor = "red";
+			return;
+		}
+
+		if(document.getElementById("Phone").style.borderColor =="red"){
+			alert("פורמט הטלפון שגוי");
+			return;
+		}
+		if(document.getElementById("Email").style.borderColor =="red"){
+			alert("פורמט המייל שגוי");
+			return;
+		}
+		if(document.getElementById("firstName").style.borderColor =="red"){
+			alert("פורמט השם המלא שגוי");
+			return;
+		}
+
+		this.mailService.sendMail(this.form).subscribe(data => {
+
+
+			if (data) {
+				var alert1 = $('.alert');
+		
+				alert1.addClass('open');
+			
+				this.formMessage='הטופס נשלח בהצלחה אנו ניצור אתכם קשר בהקדם האפשרי, תודה לייף טייפ';
+			  
+		$('span.close').on('click', function() {
+			alert1.removeClass('open');
+			  }); 
+			}
+			else {
+				console.log("FAIL");
+				var alert1 = $('.alert');
+		
+				alert1.addClass('open');
+				alert1.addClass('fail');
+			
+			  
+		$('span.close').on('click', function() {
+			alert1.removeClass('open');
+			  }); 
+			}
+		},
+		error => {
+			var alert1 = $('.alert');
+
+	
+			alert1.addClass('open');
+			alert1.addClass('fail');
+
+			this.formMessage=' 050-4766046 ישנה שגיאת שרת, אנא צרו קשר בטלפון';
+
+	
+		
+		  
+	$('span.close').on('click', function() {
+		alert1.removeClass('open');
+		  }); 
+		}
+
+		);
+
 	}
 	nameCheck() {
 
