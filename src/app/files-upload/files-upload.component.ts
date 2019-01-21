@@ -12,26 +12,34 @@ const URL = 'http://localhost:3000/drive/uploadFile';
 })
 export class FilesUploadComponent implements OnInit {
 
-  public uploader: FileUploader = new FileUploader({url: URL, itemAlias: 'photo'});
+  public static uploader: FileUploader = new FileUploader({url: URL, itemAlias: 'photo'});
 
    static filesQ  : any [] = [];
   isHTML5 = true;
-  static compleateUpload = false;
+  static compleateUploadSucsess = false;
   
   constructor() {
     
    }
 
+   get compleateUploadSucsess(){
+     return FilesUploadComponent.compleateUploadSucsess;
+   }
    get FilesQ(){
      return FilesUploadComponent.filesQ;
    }
+   get uploader(){
+    return FilesUploadComponent.uploader;
+  }
 
   ngOnInit() {
    
-    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false;  };
-    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+    FilesUploadComponent.uploader.onAfterAddingFile = (file) => { file.withCredentials = false;
+      FilesUploadComponent.filesQ=[]};
+ 
+    FilesUploadComponent.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
 
-      FilesUploadComponent.compleateUpload = false;
+
       
          console.log('ImageUpload:uploaded:', item, status, response);
           if(status == "200"){
@@ -44,18 +52,23 @@ export class FilesUploadComponent implements OnInit {
           }
         // this.files.push(item);
      };
-     this.uploader.onCompleteAll = function compleate(){
+     FilesUploadComponent.uploader.onCompleteAll = function compleate(){
 
-      FilesUploadComponent.filesQ.forEach(element => {
-        FilesUploadComponent.compleateUpload = true;
+      if(FilesUploadComponent.filesQ.length>0){
+        console.log("asdf");
+         FilesUploadComponent.uploader.clearQueue();
+         FilesUploadComponent.compleateUploadSucsess=false;
+      
+      }
+      else{
+        //success All no fail Files
+        FilesUploadComponent.compleateUploadSucsess=true;
 
-        console.log(element);
-      });
+      }
      };
+     
 
      
- 
-
   }
 
   

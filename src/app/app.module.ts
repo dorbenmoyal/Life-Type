@@ -4,10 +4,15 @@ import { FormsModule } from '@angular/forms';
 import {  HttpClient,HttpClientModule , HttpHeaders } from '@angular/common/http';
 import { FileUploadModule } from 'ng2-file-upload';
 
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilesUploadComponent } from './files-upload/files-upload.component';
+
+const appRoutes: Routes = [
+
+];
+
 
 @NgModule({
   declarations: [
@@ -15,6 +20,7 @@ import { FilesUploadComponent } from './files-upload/files-upload.component';
     FilesUploadComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     AppRoutingModule,
     FormsModule,

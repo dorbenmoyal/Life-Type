@@ -668,6 +668,11 @@ header {
 
 .about:hover:after {
     width: 100%;
+  
+}
+
+.about:hover p {
+    color: white !important;
 }
 
 .about h3 {

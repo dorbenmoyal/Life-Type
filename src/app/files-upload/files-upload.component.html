@@ -106,7 +106,8 @@
 
 </div>
 
-<div class="FilesErrors" *ngIf="FilesQ.length>0 && uploader.queue.length>0" >
+<div class="alert" *ngIf="FilesQ.length>0" >
+ <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 <h1>שגיאת העלאה</h1>
 <h3>הקבצים הבאים לא הועלו בהצלחה:</h3>
     <ul>
@@ -116,4 +117,12 @@
       </ul>
       <h3>נסו להעלות קבצים אלו בשנית</h3>
 </div>
+
+<div class="alert green" *ngIf="compleateUploadSucsess" >
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+       <h1>הקבצים הועלו בהצלחה לשרת</h1>
+       <h3>ניצור אתכם קשר בהקדם האפשרי</h3>
+       <h4>בתודה, צוות לייף טייפ</h4>
+       </div>
+       
 

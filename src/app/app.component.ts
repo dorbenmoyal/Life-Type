@@ -131,28 +131,33 @@ export class AppComponent {
 		$('span.close').on('click', function() {
 			alert1.removeClass('open');
 			  }); 
+			  $("#vi").show();
 			}
-			else {
-				console.log("FAIL");
-				var alert1 = $('.alert');
+		// 	else {
+		// 		console.log("FAIL");
+		// 		var alert1 = $('.alert');
 		
-				alert1.addClass('open');
-				alert1.addClass('fail');
+		// 		alert1.addClass('open');
+		// 		alert1.addClass('fail');
+		// 		$("fa fa-check").hide();
 			
 			  
-		$('span.close').on('click', function() {
-			alert1.removeClass('open');
-			  }); 
-			}
+		// $('span.close').on('click', function() {
+		// 	alert1.removeClass('open');
+		// 	  }); 
+		// 	}
 		},
 		error => {
+
+			$("#vi").hide();
+
 			var alert1 = $('.alert');
 
 	
 			alert1.addClass('open');
 			alert1.addClass('fail');
 
-			this.formMessage=' 050-4766046 ישנה שגיאת שרת, אנא צרו קשר בטלפון';
+			this.formMessage=' 050-4766046 ישנה שגיאת שרת הטופס לא נשלח, אנא צרו קשר בטלפון';
 
 	
 		
@@ -160,6 +165,8 @@ export class AppComponent {
 	$('span.close').on('click', function() {
 		alert1.removeClass('open');
 		  }); 
+		 
+		  
 		}
 
 		);
