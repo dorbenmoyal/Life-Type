@@ -22,3 +22,6 @@ body{
     padding: 91px;
     text-align: center;
 }
+.FilesErrors{
+    direction: rtl;
+}

@@ -106,3 +106,14 @@
 
 </div>
 
+<div class="FilesErrors" *ngIf="FilesQ.length>0 && uploader.queue.length>0" >
+<h1>שגיאת העלאה</h1>
+<h3>הקבצים הבאים לא הועלו בהצלחה:</h3>
+    <ul>
+        <li *ngFor="let item of FilesQ">
+         {{item.fileName}}
+        </li>
+      </ul>
+      <h3>נסו להעלות קבצים אלו בשנית</h3>
+</div>
+
